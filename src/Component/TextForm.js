@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 
 export default function TextForm(props) {
 
@@ -8,16 +7,19 @@ export default function TextForm(props) {
     const handleupclick = () => {
         let newtext = text.toUpperCase();
         setText(newtext);
+        props.showalert("Converted into UpperCase", "success")
     }
 
     const handlelowclick = () => {
         let newtext = text.toLowerCase();
         setText(newtext);
+        props.showalert("Converted into LowerCase", "success")
     }
 
     const handleclearclick = () => {
         let newtext = '';
         setText(newtext);
+        props.showalert("Text is Cleared", "success")
     }
 
     const handleonchange = (event) => {
