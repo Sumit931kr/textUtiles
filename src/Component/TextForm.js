@@ -22,10 +22,7 @@ export default function TextForm(props) {
     }
 
     const handlecopyclick = () => {
-    var text = document.getElementById('mybox');
-    text.select();
-    navigator.clipboard.writeText(text.value);
-    document.getSelection().removeAllRanges();
+    navigator.clipboard.writeText(text)
     props.showalert("Text Copied on CLipboard", 'success');
 
     }
@@ -58,13 +55,13 @@ export default function TextForm(props) {
             </div>
             <button disabled={text.length===0} className="btn btn-primary mx-2 my-3" onClick={handleupclick}>Convert to UpperCase</button>
             <button disabled={text.length===0} className="btn btn-success  mx-2" onClick={handlelowclick}>Convert to LowerCase</button>
-            <button  disabled={text.length===0} className="btn btn-danger mx-2" onClick={handleclearclick}>Clear the Text</button>
             <button  disabled={text.length===0} className="btn btn-warning mx-2" onClick={handlecopyclick}>Copy the Text</button>
             <button  disabled={text.length===0} className="btn btn-info mx-2" onClick={handleExtraspaceclick}>Remove the extra space</button>
+            <button  disabled={text.length===0} className="btn btn-danger mx-2" onClick={handleclearclick}>Clear the Text</button>
 
             <div className="container" style={{color: props.mode === 'dark'?'white':'black'}}>
                 <h3>Your Text Summary</h3>
-                <p> {text.split(" ").filter((element)=>{return element.length!==0}).length } words {text.length} Character</p>
+                <p> {text.split(/\s+/).filter((element)=>{return element.length!==0}).length } words {text.length} Character</p>
                 <p> {0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minute read</p>
                 <h3>Preview</h3>
                 <p>{text.length>0?text:"Nothing to Preview Here"}</p>
