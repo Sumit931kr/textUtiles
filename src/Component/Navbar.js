@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 export default function Navbar(props) {
 
 
- return (
+  return (
     <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">{props.title}</Link>
@@ -23,10 +23,10 @@ export default function Navbar(props) {
             <li className="nav-item">
               <Link className="nav-link" to="/about">{props.AboutText}</Link>
             </li>
-          </ul>
-          
-          <div className={`orm-check form-switch my-3 text-${props.togglemode}`}>
-            
+          </ul> 
+           
+
+            <div className={`form-check form-switch my-3 text-${props.togglemode}`}>
             <input className="form-check-input " onClick={props.togglemode} type="checkbox" role="switch" id="flexSwitchCheckDefault" />
             <label className="form-check-label" htmlFor="flexSwitchCheckDefault"
               style={props.textcolor}> Enable {props.moode} mode</label>
