@@ -28,7 +28,7 @@ export default function TextForm(props) {
     }
 
     const handleExtraspaceclick = () => {
-        let newtext = text.split(/[]+/);
+        let newtext = text.split(/[ ]+/);
         setText(newtext.join(" "));
         props.showalert("Extra Spaces is removed", "success")
     }
